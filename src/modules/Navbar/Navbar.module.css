@@ -1,0 +1,19 @@
+.navContainer {
+    display: flex;
+    gap: 20px;
+    align-self: center;
+}
+
+.navLink {
+    font-size: 20px;
+    color: orange;
+    font-weight: 700;
+}
+
+:global(.active) {
+    color: orangered;
+}
+
+.navLink:hover {
+    color: orangered
+}
