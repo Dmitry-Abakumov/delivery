@@ -15,7 +15,11 @@ const ShopList = ({ selectedRadioBtn, setSelectedRadioBtn }) => {
           <label
             key={name}
             htmlFor={name}
-            className={selectedRadioBtn === name ? css.activeShop : css.shop}
+            className={
+              selectedRadioBtn === name
+                ? css.activeShop
+                : `${css.shop} ${css.disabled}`
+            }
           >
             {name}
             <img src={img} alt='shop' width='150' className={css.img} />

@@ -14,8 +14,20 @@ const Menu = ({
   setTotalPrice,
 }) => {
   console.log(dishes.length > 0);
-  const toggleShoppingCart = async (id, name, price) => {
+  const toggleShoppingCart = async (id, name, price, restourant) => {
+    console.log("SELECTED BTN:", selectedRadioBtn);
+    console.log("RESTOURANT:", restourant);
+
     try {
+      const cart = await API.getShoppingCartDishes();
+      if (
+        cart.length !== 0 &&
+        !cart.some((dish) => dish.restourant === restourant)
+      )
+        return window.alert(
+          "Ваш заказ может состоять только из позиций одного ресторана"
+        );
+
       await API.updateShoppingCart(id);
     } catch (err) {
       console.log(err);
@@ -29,12 +41,12 @@ const Menu = ({
       const count = document.querySelector(`div[data-id='${name}']`);
       try {
         data = await API.getShoppingCartDishes();
+
+        setTotalPrice((prev) => prev - Number(count.innerHTML) * price);
+        setOrder((prev) => prev.filter((order) => order.name !== name));
       } catch (err) {
         console.log(err);
       }
-
-      setTotalPrice((prev) => prev - Number(count.innerHTML) * price);
-      setOrder((prev) => prev.filter((order) => order.name !== name));
     }
 
     setDishes(data);
@@ -91,7 +103,9 @@ const Menu = ({
                   <p className={css.text}>price: {price}$</p>
                   <button
                     className={css.cartBtn}
-                    onClick={() => toggleShoppingCart(_id, name, price)}
+                    onClick={() =>
+                      toggleShoppingCart(_id, name, price, restourant)
+                    }
                   >
                     {shoppingCart ? (
                       <BsFillCartCheckFill color='green' size='20' />
