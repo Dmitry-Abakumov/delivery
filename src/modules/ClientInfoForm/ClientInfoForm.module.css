@@ -1,0 +1,63 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    padding: 20px;
+    margin-right: 50px;
+
+    border: 1px solid orange;
+    border-radius: 20px;
+    
+    max-height: 350px;
+}
+
+.input {
+    height: 40px;
+    width: 300px;
+    border: 1px solid orange;
+    border-radius: 40px;
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.label {
+    margin-left: 20px;
+    color: orange;
+}
+
+.label:not(:first-child) {
+    margin-top: 15px;
+}
+
+.errMessage {
+    margin-top: 4px;
+    margin-left: 16px;
+    color: orangered;
+    font-size: 12px;
+}
+
+.error {
+    border-color: orangered;
+}
+
+.btn {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 15px;
+    width: 150px;
+    height: 40px;
+    color: orange;
+    border: 1px solid orange;
+    background-color: transparent;
+    border-radius: 20px;
+}
+
+.btn:hover {
+    background-color: orangered;
+    border-color: orangered;
+    color: orange;
+}

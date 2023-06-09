@@ -10,8 +10,9 @@
 .menuList {
     width: 100%;
     display: flex;
-    justify-content: center;
-    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
 }
 
 .menuCardWrap {
@@ -35,8 +36,9 @@
 
 .menuWrap {
     display: flex;
-    gap: 15px;
+    gap: 30px;
     align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .text {
@@ -46,11 +48,49 @@
 
 .cartBtn {
     border-color: transparent;
-    background-color: transparent;
+    background-color: #fff;
     padding: 0;
 }
 
 .priceAndCartWrap {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
+}
+
+.amount {
+    font-size: 20px;
+    font-weight: 500;
+    color: orangered;
+}
+
+.amountWrap {
+    display: flex;
+    gap: 10px;
+}
+
+.changeAmountBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 20px;
+    height: 20px; */
+    padding: 5px;
+
+    border: 1px solid orangered;
+    border-radius: 100%;
+
+    background-color: transparent;
+}
+
+.totalPrice {
+    font-size: 20px;
+    font-weight: 500;
+    color: orangered;
+}
+
+.message { 
+    color: orangered;
+    font-weight: 500;
+    font-size: 20px;
 }
