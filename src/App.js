@@ -1,3 +1,5 @@
+import { ToastContainer } from "react-toastify";
+
 import UserRoutes from "./UserRoutes";
 import Navbar from "./modules/Navbar/Navbar";
 
@@ -8,6 +10,8 @@ function App() {
     <div className={css.container}>
       <Navbar />
       <UserRoutes />
+
+      <ToastContainer />
     </div>
   );
 }

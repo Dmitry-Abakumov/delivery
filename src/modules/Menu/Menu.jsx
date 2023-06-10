@@ -1,9 +1,11 @@
 import { BsFillCartDashFill, BsFillCartCheckFill } from "react-icons/bs";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import { toast } from "react-toastify";
 
 import * as API from "../../shared/services/dishes-api";
 
 import css from "./Menu.module.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const Menu = ({
   dishes,
@@ -24,13 +26,18 @@ const Menu = ({
         cart.length !== 0 &&
         !cart.some((dish) => dish.restourant === restourant)
       )
-        return window.alert(
-          "Ваш заказ может состоять только из позиций одного ресторана"
+        return toast.warn(
+          "Your order can only contain items from one restaurant",
+          {
+            position: toast.POSITION.TOP_RIGHT,
+          }
         );
 
       await API.updateShoppingCart(id);
     } catch (err) {
-      console.log(err);
+      toast.error("Oops, something went wrong. Try reloading the page", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
 
     let data;
@@ -45,7 +52,9 @@ const Menu = ({
         setTotalPrice((prev) => prev - Number(count.innerHTML) * price);
         setOrder((prev) => prev.filter((order) => order.name !== name));
       } catch (err) {
-        console.log(err);
+        toast.error("Oops, something went wrong. Try reloading the page", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       }
     }
 

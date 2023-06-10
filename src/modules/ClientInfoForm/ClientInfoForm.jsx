@@ -1,10 +1,11 @@
-import { useState } from "react";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import { string, object } from "yup";
+import { toast } from "react-toastify";
 
 import * as API from "../../shared/services/orders-api";
 
 import css from "./ClientInfoForm.module.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const schema = object({
   name: string()
@@ -34,7 +35,9 @@ const ClientInfoForm = ({ order, totalPrice }) => {
         totalPrice,
       });
     } catch (err) {
-      console.log(err.message);
+      toast.error("Oops, something went wrong. Try reloading the page", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
 
     resetForm();
