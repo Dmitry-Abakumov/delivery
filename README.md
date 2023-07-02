@@ -8,6 +8,6 @@
 4. View total price of your order in real time
 5. Make an order. The order will be recorded in the database.
 
-   At this link you can look at the setver implementation for this application:
+   At this link you can look at the server implementation for this application:
 
    https://github.com/Dmitry-Abakumov/delivery-server
