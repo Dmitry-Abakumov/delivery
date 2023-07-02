@@ -1,6 +1,9 @@
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import { string, object } from "yup";
 import { toast } from "react-toastify";
+import { useState } from "react";
+
+import Loader from "../../shared/components/Loader/Loader";
 
 import * as API from "../../shared/services/orders-api";
 
@@ -27,8 +30,11 @@ const initialValues = {
 };
 
 const ClientInfoForm = ({ order, totalPrice }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const onSubmit = async (values, { resetForm }) => {
     try {
+      setIsLoading(true);
       await API.sendOrder({
         ...values,
         order,
@@ -38,6 +44,8 @@ const ClientInfoForm = ({ order, totalPrice }) => {
       toast.error("Oops, something went wrong. Try reloading the page", {
         position: toast.POSITION.TOP_RIGHT,
       });
+    } finally {
+      setIsLoading(false);
     }
 
     resetForm();
@@ -99,6 +107,7 @@ const ClientInfoForm = ({ order, totalPrice }) => {
 
           <button type='submit' className={css.btn}>
             Checkout
+            {isLoading && <Loader width='15' color='#fff' />}
           </button>
         </Form>
       )}

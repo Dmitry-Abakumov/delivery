@@ -6,10 +6,11 @@
     padding: 20px;
     margin-right: 50px;
 
+    background-color: orange;
     border: 1px solid orange;
     border-radius: 20px;
-    
-    max-height: 350px;
+
+    height: 486px;
 }
 
 .input {
@@ -23,7 +24,7 @@
 
 .label {
     margin-left: 20px;
-    color: orange;
+    color: red;
 }
 
 .label:not(:first-child) {
@@ -33,12 +34,12 @@
 .errMessage {
     margin-top: 4px;
     margin-left: 16px;
-    color: orangered;
+    color: red;
     font-size: 12px;
 }
 
 .error {
-    border-color: orangered;
+    border-color: red;
 }
 
 .btn {
@@ -47,16 +48,21 @@
     justify-content: center;
     align-items: center;
 
-    margin-top: 15px;
+    gap: 5px;
+
+    margin-top: auto;
     width: 150px;
     height: 40px;
     color: orange;
     border: 1px solid orange;
-    background-color: transparent;
+    background-color: red;
     border-radius: 20px;
+
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn:hover {
-    background-color: orangered;
-    color: orange;
+    transform: scale(1.1);
+
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }

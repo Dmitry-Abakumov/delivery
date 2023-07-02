@@ -15,11 +15,7 @@ const Menu = ({
   totalPrice,
   setTotalPrice,
 }) => {
-  console.log(dishes.length > 0);
   const toggleShoppingCart = async (id, name, price, restourant) => {
-    console.log("SELECTED BTN:", selectedRadioBtn);
-    console.log("RESTOURANT:", restourant);
-
     try {
       const cart = await API.getShoppingCartDishes();
       if (
@@ -109,7 +105,7 @@ const Menu = ({
                   <img src={img} alt='dish' height='150' />
                 </div>
                 <div className={css.priceAndCartWrap}>
-                  <p className={css.text}>price: {price}$</p>
+                  <p className={css.text}>price: {price} $</p>
                   <button
                     className={css.cartBtn}
                     onClick={() =>
@@ -148,13 +144,9 @@ const Menu = ({
         </div>
         {totalPrice && dishes.length ? (
           <p className={css.totalPrice}>
-            Total price : {`${totalPrice.toFixed(2)}$`}
+            Total price : {`${totalPrice.toFixed(2)} $`}
           </p>
         ) : null}
-
-        {dishes.length === 0 && (
-          <p className={css.message}>There are no items in your cart</p>
-        )}
       </ul>
     </>
   );
