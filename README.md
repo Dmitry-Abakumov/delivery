@@ -1,6 +1,6 @@
     Hello. Delivery is a web application, written with React.
 
-    With it you can:
+    With this, you can:
 
 1. Add items to cart
 2. View products on a separate page
