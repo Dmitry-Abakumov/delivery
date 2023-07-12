@@ -1,4 +1,4 @@
-Hello. Delivery is a web application, written with React
+Hello. Delivery is a multipage web application, written with React
 
 With this, you can:
 
