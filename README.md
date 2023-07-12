@@ -1,4 +1,4 @@
-Hello. Delivery is a web application, written with React.
+Hello. Delivery is a web application, written with React
 
 With this, you can:
 
@@ -13,3 +13,5 @@ At this link you can look at the server implementation for this application:
 https://github.com/Dmitry-Abakumov/delivery-server
 
 Used technologies and libraries: React, React hooks, React-router-dom, axios, CSS modules
+
+Link to live page: https://marvelous-druid-0a66c4.netlify.app
